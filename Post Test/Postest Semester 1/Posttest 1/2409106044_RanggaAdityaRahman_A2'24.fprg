@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="PRAKTIKUM 1"/>
+        <attribute name="authors" value="Rangga"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-08 06:02:05 PM"/>
+        <attribute name="created" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTA5LTA4OzAzOjA0OjIzIFBNOzI5MzI="/>
+        <attribute name="edited" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTA5LTA4OzA2OjAyOjA1IFBNOzI7MzA0Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="X, BPB, TBPB, Y, A, B" type="Integer" array="False" size=""/>
+            <output expression="&quot;Selamat Datang Di Bank Sinarrangga&quot;" newline="True"/>
+            <output expression="&quot;Sebutkan Jumlah Uang Yang Ingin Anda Pinjam!&quot;" newline="True"/>
+            <input variable="X"/>
+            <output expression="&quot;Sebutkan Jumlah Waktu Cicilan Dalam Waktu 1-3 Tahun!&quot;" newline="True"/>
+            <input variable="Y"/>
+            <if expression="Y=1">
+                <then>
+                    <assign variable="BPB" expression="(0.07/12)*X"/>
+                    <assign variable="B" expression="12"/>
+                </then>
+                <else>
+                    <if expression="Y=2">
+                        <then>
+                            <assign variable="BPB" expression="(0.13/12)*X"/>
+                            <assign variable="B" expression="24"/>
+                        </then>
+                        <else>
+                            <if expression="Y=3">
+                                <then>
+                                    <assign variable="BPB" expression="(0.19/12)*X"/>
+                                    <assign variable="B" expression="36"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <assign variable="TBPB" expression="(X+BPB)/B"/>
+            <output expression="&quot;Untuk Cicilan Selama &quot;&amp;Y&amp;&quot; Tahun&quot;&amp;&#13;&#10;&quot; Total Cicilan Perbulan Yang Harus Anda Bayar Adalah &quot;&amp;TBPB" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
