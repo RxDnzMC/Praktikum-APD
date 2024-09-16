@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="PRAKTIKUM 2"/>
+        <attribute name="authors" value="Rangga"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-16 11:10:14 AM"/>
+        <attribute name="created" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTA5LTE2OzEwOjI1OjEzIEFNOzI5MTY="/>
+        <attribute name="edited" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTA5LTE2OzExOjEwOjE0IEFNOzI7MzAyMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nama" type="String" array="False" size=""/>
+            <declare name="nim, hargaberas, diskonMR, diskonSN, diskonMS, hargaMR, hargaSN, hargaMS" type="Integer" array="False" size=""/>
+            <declare name="diskon" type="Real" array="True" size="3"/>
+            <assign variable="diskon[0]" expression="0.11"/>
+            <assign variable="diskon[1]" expression="0.14"/>
+            <assign variable="diskon[2]" expression="0.17"/>
+            <output expression="&quot;Masukkan Nama Lengkap&quot;" newline="True"/>
+            <input variable="nama"/>
+            <output expression="&quot;Nama Kamu Adalah &quot;&amp;nama&amp;ToChar(13)&amp;&quot;Masukkan NIM&quot;" newline="True"/>
+            <input variable="nim"/>
+            <output expression="&quot;NIM Kamu &quot;&amp;nim&amp;ToChar(13)&amp;&quot;Masukkan Harga Beras&quot;" newline="True"/>
+            <input variable="hargaberas"/>
+            <assign variable="diskonMR" expression="hargaberas * diskon[0]"/>
+            <assign variable="diskonSN" expression="hargaberas * diskon[1]"/>
+            <assign variable="diskonMS" expression="hargaberas * diskon[2]"/>
+            <assign variable="hargaMR" expression="hargaberas - diskonMR"/>
+            <assign variable="hargaSN" expression="hargaberas - diskonSN"/>
+            <assign variable="hargaMS" expression="hargaberas - diskonMS"/>
+            <output expression="nama&amp;&quot; Dengan NIM &quot;&amp;nim&amp;&quot; ingin Membeli Beras Seharga &quot;&amp;hargaberas&amp;ToChar(13)&amp;&quot;Jika Membeli Beras Mawar Ia Harus Membayar &quot;&amp;hargaMR&amp;&quot; Setelah Mendapatkan Diskon 11%&quot;&amp;ToChar(13)&amp;&quot;Jika Membeli Beras Sania Ia Harus Membayar &quot;&amp;hargaSN&amp;&quot; Setelah Mendapatkan Diskon 14%&quot;&amp;ToChar(13)&amp;&quot;Jika Membeli Beras Maknyus Ia Harus Membayar &quot;&amp;hargaMS&amp;&quot; Setelah Mendapatkan Diskon 17%&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
