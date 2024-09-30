@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="PRAKTIKUM 1"/>
+        <attribute name="authors" value="Rangga"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-01 12:52:37 AM"/>
+        <attribute name="created" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTA5LTA4OzAzOjA0OjIzIFBNOzI5MzI="/>
+        <attribute name="edited" value="UmFuZ2dhO0RFU0tUT1AtVjhUMjJKTDsyMDI0LTEwLTAxOzEyOjUyOjM3IEFNOzg7MzAyNQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="X, bungaperbulan, totalbungaperbulan, Y, A, bulan, nim, percobaanusername, percobaanpassword, password, tigadigitpw, nimpw, digittiga, percobaanbunga" type="Integer" array="False" size=""/>
+            <declare name="nama, username, ulang" type="String" array="False" size=""/>
+            <do expression="ulang = &quot;no&quot; or ulang = &quot;No&quot; or ulang = &quot;nO&quot; or ulang = &quot;NO&quot;">
+                <output expression="&quot;Selamat Datang Di Bank Sinarrangga&quot;" newline="True"/>
+                <output expression="&quot;Masukkan Nama Anda!&quot;" newline="True"/>
+                <input variable="nama"/>
+                <output expression="&quot;Masukkan NIM Anda!&quot;" newline="True"/>
+                <input variable="nim"/>
+                <output expression="&quot;Masukkan Username (Harus Huruf Kecil Dan Maksimal 3 Kali Percobaan)&quot;" newline="True"/>
+                <input variable="username"/>
+                <assign variable="percobaanusername" expression="1"/>
+                <assign variable="percobaanpassword" expression="1"/>
+                <assign variable="tigadigitpw" expression="nim % 1000"/>
+                <assign variable="digittiga" expression="(nim / 100) % 10"/>
+                <assign variable="percobaanbunga" expression="0"/>
+                <if expression="digittiga = 0">
+                    <then>
+                        <assign variable="nimpw" expression="nim % 100"/>
+                    </then>
+                    <else>
+                        <assign variable="nimpw" expression="nim % 1000"/>
+                    </else>
+                </if>
+                <while expression="username &gt;= &quot;A&quot; and username &lt;= &quot;Z&quot; and percobaanusername &lt;= 2 and percobaanpassword &lt;= 3">
+                    <output expression="&quot;Masukkan Ulang Username&quot;" newline="True"/>
+                    <input variable="username"/>
+                    <if expression="username &gt;= &quot;a&quot; and username &lt;= &quot;z&quot;">
+                        <then/>
+                        <else>
+                            <assign variable="percobaanusername" expression="percobaanusername + 1"/>
+                        </else>
+                    </if>
+                </while>
+                <if expression="percobaanusername &lt;= 2">
+                    <then>
+                        <output expression="&quot;Masukkan Password (jika 3 kali salah maka program berakhir, Password adalah 3 angka terakhir dari NIM anda, kecuali ada angka 0 pada digit pertama dari tiga angka terakhir, jika itu terjadi password adalah 2 digit terakhir)&quot;" newline="True"/>
+                        <input variable="password"/>
+                        <assign variable="percobaanpassword" expression="percobaanpassword + 1"/>
+                    </then>
+                    <else>
+                        <assign variable="password" expression="0"/>
+                    </else>
+                </if>
+                <while expression="percobaanusername &lt;= 2 and not (nimpw == password) and percobaanpassword &lt;= 3">
+                    <output expression="&quot;Password Salah Silahkan Masukkan Ulang Password&quot;&amp;ToChar(13)&amp;&quot;Percobaan Ke &quot;&amp;percobaanpassword" newline="True"/>
+                    <input variable="password"/>
+                    <if expression="nimpw == password">
+                        <then/>
+                        <else>
+                            <assign variable="percobaanpassword" expression="percobaanpassword + 1"/>
+                        </else>
+                    </if>
+                </while>
+                <while expression="percobaanpassword &lt;= 2 and percobaanusername &lt;= 3 and percobaanbunga &lt;= 0">
+                    <output expression="&quot;Sebutkan Jumlah Uang Yang Ingin Anda Pinjam!&quot;" newline="True"/>
+                    <input variable="X"/>
+                    <output expression="&quot;Sebutkan Jumlah Waktu Cicilan Dalam Waktu 1-3 Tahun!&quot;" newline="True"/>
+                    <input variable="Y"/>
+                    <if expression="Y=1">
+                        <then>
+                            <assign variable="bungaperbulan" expression="(0.07/12)*X"/>
+                            <assign variable="bulan" expression="12"/>
+                        </then>
+                        <else>
+                            <if expression="Y=2">
+                                <then>
+                                    <assign variable="bungaperbulan" expression="(0.13/12)*X"/>
+                                    <assign variable="bulan" expression="24"/>
+                                </then>
+                                <else>
+                                    <assign variable="bungaperbulan" expression="(0.19/12)*X"/>
+                                    <assign variable="bulan" expression="36"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <assign variable="totalbungaperbulan" expression="(X+bungaperbulan)/bulan"/>
+                    <assign variable="percobaanbunga" expression="percobaanbunga + 1"/>
+                </while>
+                <if expression="percobaanusername &gt; 3">
+                    <then>
+                        <output expression="&quot;Maaf program terhenti dikarenakan salah Memasukkan Username Sebanyak 3 kali&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="percobaanpassword &gt; 3">
+                            <then>
+                                <output expression="&quot;Maaf program terhenti dikarenakan salah Memasukkan Password Sebanyak 3 kali&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="nama&amp;&quot; Dengan NIM &quot;&amp;nim&amp;&quot; Dan Username &quot;&amp;username&amp;ToChar(13)&amp;&quot; Ingin Mencicil Sebesar &quot;&amp;x&amp;&quot; Untuk Cicilan Selama &quot;&amp;Y&amp;&quot; Tahun&quot;&amp;ToChar(13)&amp;&quot;Total Cicilan Perbulan Yang Harus Anda Bayar Adalah Rp.&quot;&amp;totalbungaperbulan" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Ketik 'no' Untuk Berhenti Mengulang Program&quot;&amp;ToChar(13)&amp;&quot;Ketikkan Selain 'no' akan mengulang program ini&quot;" newline="True"/>
+                <input variable="ulang"/>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
